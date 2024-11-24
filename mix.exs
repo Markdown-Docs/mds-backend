@@ -70,7 +70,8 @@ defmodule Backend.MixProject do
       {:bandit, "~> 1.5"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:propcheck, "~> 1.4.1", only: [:test]},
-      {:excoveralls, "~> 0.18", only: :test}
+      {:excoveralls, "~> 0.18", only: :test},
+      {:ecto_sqlite3, "~> 0.10.0"}
     ]
   end
 
