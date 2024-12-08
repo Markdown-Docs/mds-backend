@@ -60,6 +60,8 @@ jobs:
 
       - name: Test
         run: |
+          mix ecto.create
+          mix ecto.migrate
           mix test --trace
         env:
           MIX_ENV: test
