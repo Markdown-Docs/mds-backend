@@ -3,7 +3,7 @@ import Config
 # Configure SQLite database for testing
 config :backend, Backend.Repo,
   adapter: Ecto.Adapters.SQLite3,
-  database: ":memory:",
+  database: "file::memory:?cache=shared",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: System.schedulers_online() * 2
 
