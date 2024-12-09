@@ -3,8 +3,8 @@ defmodule Backend.Repo.Migrations.AddFile do
 
   def change do
     create table(:files) do
-      add :filename, :string
-      add :created_at, :date
+      add :name, :string, null: false
+      add :content, :binary
     end
   end
 end

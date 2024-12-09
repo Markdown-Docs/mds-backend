@@ -6,7 +6,7 @@ defmodule BackendWeb.Router do
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, html: {BackendWeb.Layouts, :root}
-    plug :protect_from_forgery
+    # plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
 
@@ -18,6 +18,10 @@ defmodule BackendWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    get "/file/:id", FileController, :get_file
+    post "/file", FileController, :create_file
+    delete "/file/:id", FileController, :delete_file
   end
 
   # Other scopes may use custom stacks.
