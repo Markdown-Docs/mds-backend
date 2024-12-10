@@ -16,9 +16,13 @@ defmodule Backend.Files do
   end
 
   def save_file(file) do
+    # Это сделано специально, так как без обнуления контента cast думает, что ничего не изменилось
+    content = file.content
+    file = %{file | content: ""}
+
     file
-    |> File.changeset(%{})
-    |> Repo.update()
+    |> File.changeset(%{content: content})
+    |> Repo.update!()
   end
 
   def delete_file(file) do

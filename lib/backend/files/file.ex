@@ -12,9 +12,7 @@ defmodule Backend.Files.File do
     field :content, :string
   end
 
-  def changeset(file, attrs) do
-    file
-    |> cast(attrs, [:name, :content], empty_values: [:content])
-    |> validate_required([:name])
+  def changeset(file, attr) do
+    cast(file, attr, [:name, :content])
   end
 end

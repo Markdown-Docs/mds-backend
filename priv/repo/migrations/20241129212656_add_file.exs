@@ -4,7 +4,7 @@ defmodule Backend.Repo.Migrations.AddFile do
   def change do
     create table(:files) do
       add :name, :string, null: false
-      add :content, :binary
+      add :content, :string
     end
   end
 end
