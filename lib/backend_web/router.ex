@@ -20,6 +20,7 @@ defmodule BackendWeb.Router do
     get "/", PageController, :home
 
     get "/file/:id", FileController, :get_file
+    get "/file", FileController, :get_files
     post "/file", FileController, :create_file
     delete "/file/:id", FileController, :delete_file
   end
