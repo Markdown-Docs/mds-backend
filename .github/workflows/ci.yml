@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          submodules: recursive
 
       - name: Set up Elixir
         uses: erlef/setup-beam@v1
@@ -22,6 +24,24 @@ jobs:
           elixir-version: '1.15.7'
           otp-version: '26.0'
           version-type: 'loose'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y make
+          if ! [ -x "$(command -v stack)" ]; then
+            curl -sSL https://get.haskellstack.org/ | sh
+          else
+            echo "Stack is already installed."
+          fi
+
+      - name: Build parser
+        run: |
+          stack setup --install-ghc
+          mkdir -p build runnable
+          stack install cryptonite
+          make build
+        working-directory: ./mds-converter
 
       - name: Restore cache
         uses: actions/cache@v4
