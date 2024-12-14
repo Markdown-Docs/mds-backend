@@ -18,6 +18,14 @@ defmodule BackendWeb.FileController do
     end
   end
 
+  def get_files(conn, _param) do
+    files = Files.get_files()
+
+    conn
+    |> put_status(200)
+    |> json(files)
+  end
+
   def create_file(conn, %{"name" => name}) do
     case Files.create_file(%{"name" => name, "content" => ""}) do
       {:ok, file} ->

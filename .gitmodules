@@ -1,0 +1,3 @@
+[submodule "mds-converter"]
+	path = mds-converter
+	url = git@github.com:markdown-docs/mds-converter.git

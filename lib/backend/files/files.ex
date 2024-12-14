@@ -9,6 +9,10 @@ defmodule Backend.Files do
     Repo.get(File, id)
   end
 
+  def get_files() do
+    Repo.all(File)
+  end
+
   def create_file(attrs \\ %{}) do
     %File{}
     |> File.changeset(attrs)
