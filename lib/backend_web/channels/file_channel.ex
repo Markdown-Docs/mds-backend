@@ -1,4 +1,8 @@
 defmodule BackendWeb.FileChannel do
+  @moduledoc """
+  FileChannel used to interact with file's content
+  """
+
   use Phoenix.Channel
 
   alias Backend.Files
@@ -29,7 +33,8 @@ defmodule BackendWeb.FileChannel do
         {:ok, html} ->
           PreviewChannel.send_preview(file_id, html)
           Logger.debug("SENT preview BACK ON preview:#{file_id}")
-          Logger.debug("  HTML Content: #{String.slice(html, 0..100)}...") # Limit log size
+          # Limit log size
+          Logger.debug("  HTML Content: #{String.slice(html, 0..100)}...")
 
         {:error, reason} ->
           Logger.error("Parser error: #{inspect(reason)}")
