@@ -2,8 +2,8 @@ defmodule BackendWeb.UserSocket do
   use Phoenix.Socket
 
   ## Каналы
-  # Это маршрут, на который будет подписан клиент
   channel "file:*", BackendWeb.FileChannel
+  channel "preview:*", BackendWeb.PreviewChannel
 
   # Здесь можно добавить авторизацию (опционально)
   def connect(_params, socket, _connect_info) do

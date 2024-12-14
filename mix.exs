@@ -68,7 +68,9 @@ defmodule Backend.MixProject do
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:propcheck, "~> 1.4.1", only: [:test]},
       {:excoveralls, "~> 0.18", only: :test},
-      {:ecto_sqlite3, "~> 0.10.0"}
+      {:ecto_sqlite3, "~> 0.10.0"},
+      {:mock, "~> 0.3.8", only: :test},
+      {:cors_plug, "~> 3.0"}
     ]
   end
 

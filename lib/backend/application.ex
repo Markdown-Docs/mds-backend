@@ -19,7 +19,10 @@ defmodule Backend.Application do
       # Start to serve requests, typically the last entry
       BackendWeb.Endpoint,
       Backend.Files.FileRegistry,
-      Backend.Files.FileManager
+      Backend.Files.FileManager,
+      # Backend.Parsers.Pool
+      # Backend.Parsers.MdsParser
+      {Task.Supervisor, name: Backend.TaskSupervisor}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
